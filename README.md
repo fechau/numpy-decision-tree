@@ -8,4 +8,4 @@ Numpy implementation of a decision tree classifier that uses the ID3 algorithm.
 
 ###### Future:
 - Apply on other data sets.
-- Varients.
+- Variants.

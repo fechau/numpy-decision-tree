@@ -1,15 +1,14 @@
 import copy
 import numpy as np
 
+
 class Attribute:
 	pass
 
 class Data:
-	"""
-    This is a class is used to store and query the data.
-    """
+	
 	def __init__(self, *, fpath = "", data = None):
-
+		
 		if not fpath and data is None:
 			raise Exception("Must pass either a path to a data file or a numpy array object")
 
@@ -17,7 +16,7 @@ class Data:
 		self.column_index_dict = self._load_data(fpath, data)
 
 	def _load_data(self, fpath = "", data = None):
-
+		
 		if data is None:
 			data = np.loadtxt(fpath, delimiter=',', dtype = str)
 
@@ -35,7 +34,7 @@ class Data:
 		attributes = self._set_attributes_info(index_column_dict, data)
 
 		return data, attributes, index_column_dict, column_index_dict
-
+	
 	def _set_attributes_info(self, index_column_dict, data):
 		attributes = dict()
 
@@ -55,10 +54,10 @@ class Data:
 		"""
 
 		Given an attribute name returns the all of the possible values it can take on.
-
+		
 		Args:
 		    attribute_name (str)
-
+		
 		Returns:
 		    TYPE: numpy.ndarray
 		"""
@@ -69,12 +68,12 @@ class Data:
 
 		Given an attribute name and attribute value returns a row-wise subset of the data,
 		where all of the rows contain the value for the given attribute.
-
+		
 		Args:
-		    attribute_name (str):
-		    attribute_value (str):
+		    attribute_name (str): 
+		    attribute_value (str): 
 		    data (numpy.ndarray, optional):
-
+		
 		Returns:
 		    TYPE: numpy.ndarray
 		"""
@@ -90,11 +89,11 @@ class Data:
 		"""
 
 		Given an attribute name returns the corresponding column in the dataset.
-
+		
 		Args:
 		    attribute_names (str or list)
 		    data (numpy.ndarray, optional)
-
+		
 		Returns:
 		    TYPE: numpy.ndarray
 		"""
@@ -116,10 +115,10 @@ class Data:
 		"""
 
 		Given an attribute name returns the integer index that corresponds to it.
-
+		
 		Args:
 		    attribute_name (str)
-
+		
 		Returns:
 		    TYPE: int
 		"""
